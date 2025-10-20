@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   experimental: {
-    ppr: "incremental",
+    // ppr: "incremental", // Disabled - requires Next.js canary version
     optimizePackageImports: [
       "react-tweet",
       "echarts-for-react",
