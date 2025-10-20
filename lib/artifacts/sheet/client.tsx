@@ -8,7 +8,7 @@ import {
   SparklesIcon,
   UndoIcon,
 } from "@/components/icons";
-import { SpreadsheetEditor } from "@/components/sheet-editor";
+import SheetEditor from "@/components/sheet-editor";
 import {
   DEFAULT_ANALYZE_AND_VISUALIZE_SHEET_MODEL,
   DEFAULT_FORMAT_AND_CLEAN_SHEET_MODEL,
@@ -38,7 +38,7 @@ export const sheetArtifact = new Artifact<"sheet", Metadata>({
     status,
     isReadonly,
   }) => (
-    <SpreadsheetEditor
+    <SheetEditor
       content={content}
       currentVersionIndex={currentVersionIndex}
       isCurrentVersion={isCurrentVersion}

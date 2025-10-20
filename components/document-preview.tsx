@@ -20,7 +20,7 @@ import { DocumentToolCall, DocumentToolResult } from "./document";
 import { InlineDocumentSkeleton } from "./document-skeleton";
 import { FileIcon, FullscreenIcon, LoaderIcon, PencilEditIcon } from "./icons";
 import { ImageEditor } from "./image-editor";
-import { SpreadsheetEditor } from "./sheet-editor";
+import SheetEditor from "./sheet-editor";
 import { Editor } from "./text-editor";
 
 type DocumentPreviewProps = {
@@ -310,7 +310,7 @@ const DocumentContent = ({ document }: { document: Document }) => {
       ) : document.kind === "sheet" ? (
         <div className="relative flex size-full flex-1 p-4">
           <div className="absolute inset-0">
-            <SpreadsheetEditor {...commonProps} />
+            <SheetEditor {...commonProps} />
           </div>
         </div>
       ) : document.kind === "image" ? (
