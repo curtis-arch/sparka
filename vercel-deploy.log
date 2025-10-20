@@ -1,0 +1,252 @@
+Vercel CLI 48.4.0
+Retrieving project…
+Deploying curtis-archs-projects/sparka
+Uploading [--------------------] (0.0B/77.4KB)
+Uploading [=====---------------] (22.6KB/77.4KB)
+Uploading [==========----------] (38.8KB/77.4KB)
+Uploading [===============-----] (58.9KB/77.4KB)
+Uploading [====================] (77.4KB/77.4KB)
+Inspect: https://vercel.com/curtis-archs-projects/sparka/8Vu8gEwqkkm7u2jW5Wi3fceKRKLW [3s]
+Production: https://sparka-a6xq013d1-curtis-archs-projects.vercel.app [3s]
+https://sparka-a6xq013d1-curtis-archs-projects.vercel.appQueued
+Building
+2025-10-20T12:35:48.124Z  Running build in Portland, USA (West) – pdx1 (Enhanced Build Machine)
+2025-10-20T12:35:48.125Z  Build machine configuration: 8 cores, 16 GB
+2025-10-20T12:35:48.137Z  Retrieving list of deployment files...
+2025-10-20T12:35:48.203Z  Previous build caches not available
+2025-10-20T12:35:48.513Z  Downloading 637 deployment files...
+2025-10-20T12:35:53.224Z  Running "vercel build"
+2025-10-20T12:35:53.589Z  Vercel CLI 48.2.9
+2025-10-20T12:35:53.708Z  Detected OpenTelemetry dependency: @vercel/otel@2.0.1, which meets the minimum version requirement of 1.11.0
+2025-10-20T12:35:54.272Z  Running "install" command: `bun install`...
+2025-10-20T12:35:54.300Z  bun install v1.2.23 (cf136713)
+2025-10-20T12:35:54.339Z  Resolving dependencies
+2025-10-20T12:35:56.997Z  Resolved, downloaded and extracted [1052]
+2025-10-20T12:35:56.998Z  warn: incorrect peer dependency "@opentelemetry/sdk-metrics@1.30.1"
+2025-10-20T12:35:56.998Z  
+2025-10-20T12:35:56.998Z  warn: incorrect peer dependency "@opentelemetry/sdk-trace-base@1.30.1"
+2025-10-20T12:36:22.284Z  Saved lockfile
+2025-10-20T12:36:22.285Z  
+2025-10-20T12:36:22.285Z  + @biomejs/biome@2.2.6
+2025-10-20T12:36:22.285Z  + @playwright/test@1.56.1
+2025-10-20T12:36:22.285Z  + @storybook/addon-links@9.1.13
+2025-10-20T12:36:22.285Z  + @storybook/nextjs@9.1.13
+2025-10-20T12:36:22.285Z  + @tailwindcss/postcss@4.1.14
+2025-10-20T12:36:22.285Z  + @tailwindcss/typography@0.5.19
+2025-10-20T12:36:22.285Z  + @types/d3-scale@4.0.9
+2025-10-20T12:36:22.285Z  + @types/diff@8.0.0
+2025-10-20T12:36:22.285Z  + @types/node@24.8.1
+2025-10-20T12:36:22.285Z  + @types/papaparse@5.3.16
+2025-10-20T12:36:22.285Z  + @types/pdf-parse@1.1.5
+2025-10-20T12:36:22.285Z  + @types/react@19.2.2
+2025-10-20T12:36:22.285Z  + @types/react-dom@19.2.2
+2025-10-20T12:36:22.285Z  + drizzle-kit@0.31.5
+2025-10-20T12:36:22.285Z  + pino-pretty@13.1.2
+2025-10-20T12:36:22.285Z  + postcss@8.5.6
+2025-10-20T12:36:22.285Z  + storybook@9.1.13
+2025-10-20T12:36:22.285Z  + tailwindcss@4.1.14
+2025-10-20T12:36:22.285Z  + tsx@4.20.6
+2025-10-20T12:36:22.286Z  + tw-animate-css@1.4.0
+2025-10-20T12:36:22.286Z  + typescript@5.9.3
+2025-10-20T12:36:22.286Z  + ultracite@5.6.4
+2025-10-20T12:36:22.286Z  + vitest@3.2.4
+2025-10-20T12:36:22.286Z  + @ai-models/vercel-gateway@workspace:packages/models
+2025-10-20T12:36:22.286Z  + @ai-sdk-tools/devtools@0.8.4
+2025-10-20T12:36:22.286Z  + @ai-sdk/anthropic@2.0.33
+2025-10-20T12:36:22.286Z  + @ai-sdk/gateway@2.0.0
+2025-10-20T12:36:22.286Z  + @ai-sdk/google@2.0.23
+2025-10-20T12:36:22.286Z  + @ai-sdk/openai@2.0.53
+2025-10-20T12:36:22.286Z  + @ai-sdk/provider@2.0.0
+2025-10-20T12:36:22.286Z  + @ai-sdk/provider-utils@3.0.12
+2025-10-20T12:36:22.286Z  + @ai-sdk/react@2.0.76
+2025-10-20T12:36:22.286Z  + @ai-sdk/xai@2.0.26
+2025-10-20T12:36:22.287Z  + @codemirror/lang-javascript@6.2.4
+2025-10-20T12:36:22.287Z  + @codemirror/lang-python@6.2.1
+2025-10-20T12:36:22.287Z  + @codemirror/state@6.5.2
+2025-10-20T12:36:22.287Z  + @codemirror/theme-one-dark@6.1.3
+2025-10-20T12:36:22.287Z  + @codemirror/view@6.38.6
+2025-10-20T12:36:22.287Z  + @e2b/code-interpreter@2.1.0
+2025-10-20T12:36:22.287Z  + @hookform/resolvers@5.2.2
+2025-10-20T12:36:22.287Z  + @lexical/code@0.37.0
+2025-10-20T12:36:22.287Z  + @lexical/html@0.37.0
+2025-10-20T12:36:22.287Z  + @lexical/link@0.37.0
+2025-10-20T12:36:22.288Z  + @lexical/list@0.37.0
+2025-10-20T12:36:22.288Z  + @lexical/markdown@0.37.0
+2025-10-20T12:36:22.288Z  + @lexical/react@0.37.0
+2025-10-20T12:36:22.288Z  + @lexical/rich-text@0.37.0
+2025-10-20T12:36:22.288Z  + @lobehub/icons@2.43.1
+2025-10-20T12:36:22.288Z  + @mendable/firecrawl-js@4.4.1
+2025-10-20T12:36:22.288Z  + @opentelemetry/api-logs@0.206.0
+2025-10-20T12:36:22.288Z  + @opentelemetry/instrumentation@0.206.0
+2025-10-20T12:36:22.288Z  + @opentelemetry/sdk-logs@0.206.0
+2025-10-20T12:36:22.288Z  + @phosphor-icons/react@2.1.10
+2025-10-20T12:36:22.288Z  + @radix-ui/react-accordion@1.2.12
+2025-10-20T12:36:22.288Z  + @radix-ui/react-alert-dialog@1.1.15
+2025-10-20T12:36:22.288Z  + @radix-ui/react-aspect-ratio@1.1.7
+2025-10-20T12:36:22.288Z  + @radix-ui/react-avatar@1.1.10
+2025-10-20T12:36:22.288Z  + @radix-ui/react-checkbox@1.3.3
+2025-10-20T12:36:22.288Z  + @radix-ui/react-collapsible@1.1.12
+2025-10-20T12:36:22.288Z  + @radix-ui/react-context-menu@2.2.16
+2025-10-20T12:36:22.288Z  + @radix-ui/react-dialog@1.1.15
+2025-10-20T12:36:22.288Z  + @radix-ui/react-dropdown-menu@2.1.16
+2025-10-20T12:36:22.288Z  + @radix-ui/react-hover-card@1.1.15
+2025-10-20T12:36:22.288Z  + @radix-ui/react-icons@1.3.2
+2025-10-20T12:36:22.288Z  + @radix-ui/react-label@2.1.7
+2025-10-20T12:36:22.288Z  + @radix-ui/react-menubar@1.1.16
+2025-10-20T12:36:22.288Z  + @radix-ui/react-navigation-menu@1.2.14
+2025-10-20T12:36:22.288Z  + @radix-ui/react-popover@1.1.15
+2025-10-20T12:36:22.288Z  + @radix-ui/react-progress@1.1.7
+2025-10-20T12:36:22.288Z  + @radix-ui/react-radio-group@1.3.8
+2025-10-20T12:36:22.288Z  + @radix-ui/react-scroll-area@1.2.10
+2025-10-20T12:36:22.289Z  + @radix-ui/react-select@2.2.6
+2025-10-20T12:36:22.289Z  + @radix-ui/react-separator@1.1.7
+2025-10-20T12:36:22.289Z  + @radix-ui/react-slider@1.3.6
+2025-10-20T12:36:22.289Z  + @radix-ui/react-slot@1.2.3
+2025-10-20T12:36:22.289Z  + @radix-ui/react-switch@1.2.6
+2025-10-20T12:36:22.289Z  + @radix-ui/react-tabs@1.1.13
+2025-10-20T12:36:22.289Z  + @radix-ui/react-toggle@1.1.10
+2025-10-20T12:36:22.289Z  + @radix-ui/react-toggle-group@1.1.11
+2025-10-20T12:36:22.289Z  + @radix-ui/react-tooltip@1.2.8
+2025-10-20T12:36:22.289Z  + @radix-ui/react-use-controllable-state@1.2.2
+2025-10-20T12:36:22.289Z  + @radix-ui/react-visually-hidden@1.2.3
+2025-10-20T12:36:22.289Z  + @redux-devtools/extension@3.3.0
+2025-10-20T12:36:22.289Z  + @stepperize/react@5.1.9
+2025-10-20T12:36:22.289Z  + @t3-oss/env-nextjs@0.13.8
+2025-10-20T12:36:22.289Z  + @tanstack/react-query@5.90.5
+2025-10-20T12:36:22.289Z  + @tanstack/react-query-devtools@5.90.2
+2025-10-20T12:36:22.289Z  + @tanstack/react-virtual@3.13.12
+2025-10-20T12:36:22.289Z  + @tavily/core@0.5.12
+2025-10-20T12:36:22.289Z  + @trpc/client@11.6.0
+2025-10-20T12:36:22.289Z  + @trpc/server@11.6.0
+2025-10-20T12:36:22.289Z  + @trpc/tanstack-react-query@11.6.0
+2025-10-20T12:36:22.289Z  + @types/lodash-es@4.17.12
+2025-10-20T12:36:22.289Z  + @types/react-syntax-highlighter@15.5.13
+2025-10-20T12:36:22.289Z  + @types/uuid@11.0.0
+2025-10-20T12:36:22.289Z  + @upstash/redis@1.35.6
+2025-10-20T12:36:22.289Z  + @vercel/analytics@1.5.0
+2025-10-20T12:36:22.289Z  + @vercel/blob@2.0.0
+2025-10-20T12:36:22.290Z  + @vercel/kv@3.0.0
+2025-10-20T12:36:22.290Z  + @vercel/og@0.8.5
+2025-10-20T12:36:22.290Z  + @vercel/otel@2.0.1
+2025-10-20T12:36:22.290Z  + @vercel/postgres@0.10.0
+2025-10-20T12:36:22.290Z  + ai@5.0.76
+2025-10-20T12:36:22.290Z  + bcrypt-ts@7.1.0
+2025-10-20T12:36:22.290Z  + better-auth@1.3.28
+2025-10-20T12:36:22.290Z  + browser-image-compression@2.0.2
+2025-10-20T12:36:22.290Z  + class-variance-authority@0.7.1
+2025-10-20T12:36:22.290Z  + classnames@2.5.1
+2025-10-20T12:36:22.290Z  + clsx@2.1.1
+2025-10-20T12:36:22.290Z  + cmdk@1.1.1
+2025-10-20T12:36:22.290Z  + codemirror@6.0.2
+2025-10-20T12:36:22.290Z  + date-fns@4.1.0
+2025-10-20T12:36:22.290Z  + diff@8.0.2
+2025-10-20T12:36:22.290Z  + dotenv@17.2.3
+2025-10-20T12:36:22.290Z  + drizzle-orm@0.44.6
+2025-10-20T12:36:22.290Z  + echarts-for-react@3.0.2
+2025-10-20T12:36:22.290Z  + embla-carousel-react@8.6.0
+2025-10-20T12:36:22.290Z  + exa-js@1.10.2
+2025-10-20T12:36:22.290Z  + fast-deep-equal@3.1.3
+2025-10-20T12:36:22.290Z  + geist@1.5.1
+2025-10-20T12:36:22.290Z  + harden-react-markdown@1.1.5
+2025-10-20T12:36:22.290Z  + input-otp@1.4.2
+2025-10-20T12:36:22.290Z  + install@0.13.0
+2025-10-20T12:36:22.291Z  + js-tiktoken@1.0.21
+2025-10-20T12:36:22.291Z  + langfuse@3.38.6
+2025-10-20T12:36:22.291Z  + langfuse-vercel@3.38.6
+2025-10-20T12:36:22.291Z  + lexical@0.37.0
+2025-10-20T12:36:22.291Z  + lodash@4.17.21
+2025-10-20T12:36:22.291Z  + lodash-es@4.17.21
+2025-10-20T12:36:22.291Z  + lucide-react@0.546.0
+2025-10-20T12:36:22.291Z  + marked@16.4.1
+2025-10-20T12:36:22.291Z  + marked-react@3.0.2
+2025-10-20T12:36:22.291Z  + mermaid@11.12.0
+2025-10-20T12:36:22.291Z  + motion@12.23.24
+2025-10-20T12:36:22.291Z  + nanoid@5.1.6
+2025-10-20T12:36:22.291Z  + next@15.5.6
+2025-10-20T12:36:22.291Z  + next-themes@0.4.6
+2025-10-20T12:36:22.291Z  + openai@6.5.0
+2025-10-20T12:36:22.291Z  + orderedmap@2.1.1
+2025-10-20T12:36:22.291Z  + p-retry@7.1.0
+2025-10-20T12:36:22.291Z  + papaparse@5.5.3
+2025-10-20T12:36:22.291Z  + pino@10.1.0
+2025-10-20T12:36:22.291Z  + postgres@3.4.7
+2025-10-20T12:36:22.291Z  + react@19.2.0
+2025-10-20T12:36:22.291Z  + react-data-grid@7.0.0-beta.58
+2025-10-20T12:36:22.291Z  + react-day-picker@9.11.1
+2025-10-20T12:36:22.291Z  + react-dom@19.2.0
+2025-10-20T12:36:22.291Z  + react-dropzone@14.3.8
+2025-10-20T12:36:22.292Z  + react-hook-form@7.65.0
+2025-10-20T12:36:22.292Z  + react-markdown@10.1.0
+2025-10-20T12:36:22.292Z  + react-resizable-panels@3.0.6
+2025-10-20T12:36:22.292Z  + react-syntax-highlighter@15.6.6
+2025-10-20T12:36:22.292Z  + react-tweet@3.2.2
+2025-10-20T12:36:22.292Z  + recharts@3.3.0
+2025-10-20T12:36:22.292Z  + redis@5.8.3
+2025-10-20T12:36:22.292Z  + rehype-katex@7.0.1
+2025-10-20T12:36:22.292Z  + remark-breaks@4.0.0
+2025-10-20T12:36:22.292Z  + remark-gfm@4.0.1
+2025-10-20T12:36:22.292Z  + remark-math@6.0.0
+2025-10-20T12:36:22.292Z  + resumable-stream@2.2.8
+2025-10-20T12:36:22.292Z  + server-only@0.0.1
+2025-10-20T12:36:22.292Z  + sonner@2.0.7
+2025-10-20T12:36:22.292Z  + streamdown@1.4.0
+2025-10-20T12:36:22.292Z  + superjson@2.2.2
+2025-10-20T12:36:22.292Z  + swr@2.3.6
+2025-10-20T12:36:22.292Z  + tailwind-merge@3.3.1
+2025-10-20T12:36:22.292Z  + throttleit@2.1.0
+2025-10-20T12:36:22.292Z  + tokenlens@1.3.1
+2025-10-20T12:36:22.292Z  + use-stick-to-bottom@1.1.1
+2025-10-20T12:36:22.292Z  + usehooks-ts@3.1.1
+2025-10-20T12:36:22.292Z  + uuid@13.0.0
+2025-10-20T12:36:22.292Z  + vaul@1.1.2
+2025-10-20T12:36:22.292Z  + vercel@48.4.1
+2025-10-20T12:36:22.292Z  + zod@4.1.12
+2025-10-20T12:36:22.292Z  + zustand@5.0.8
+2025-10-20T12:36:22.292Z  
+2025-10-20T12:36:22.292Z  1842 packages installed [28.00s]
+2025-10-20T12:36:22.431Z  $ (cd packages/models && bun run build) && tsx lib/db/migrate && next build
+2025-10-20T12:36:22.434Z  $ bunx tsup
+2025-10-20T12:36:22.746Z  [34mCLI[39m Building entry: index.ts
+2025-10-20T12:36:22.746Z  [34mCLI[39m Using tsconfig: tsconfig.json
+2025-10-20T12:36:22.746Z  [34mCLI[39m tsup v8.5.0
+2025-10-20T12:36:22.746Z  [34mCLI[39m Using tsup config: /vercel/path0/packages/models/tsup.config.ts
+2025-10-20T12:36:22.750Z  [34mCLI[39m Target: esnext
+2025-10-20T12:36:22.752Z  [34mCLI[39m Cleaning output folder
+2025-10-20T12:36:22.752Z  [34mESM[39m Build start
+2025-10-20T12:36:22.753Z  [34mCJS[39m Build start
+2025-10-20T12:36:22.776Z  [32mESM[39m [1mdist/index.js     [22m[32m98.64 KB[39m
+2025-10-20T12:36:22.776Z  [32mESM[39m [1mdist/index.js.map [22m[32m166.22 KB[39m
+2025-10-20T12:36:22.776Z  [32mESM[39m ⚡️ Build success in 24ms
+2025-10-20T12:36:22.777Z  [32mCJS[39m [1mdist/index.cjs     [22m[32m99.86 KB[39m
+2025-10-20T12:36:22.777Z  [32mCJS[39m [1mdist/index.cjs.map [22m[32m166.29 KB[39m
+2025-10-20T12:36:22.777Z  [32mCJS[39m ⚡️ Build success in 23ms
+2025-10-20T12:36:23.076Z  [34mDTS[39m Build start
+2025-10-20T12:36:24.922Z  [32mDTS[39m ⚡️ Build success in 1846ms
+2025-10-20T12:36:24.922Z  [32mDTS[39m [1mdist/index.d.ts  [22m[32m9.04 KB[39m
+2025-10-20T12:36:24.922Z  [32mDTS[39m [1mdist/index.d.cts [22m[32m9.04 KB[39m
+2025-10-20T12:36:25.799Z  [dotenv@17.2.3] injecting env (0) from .env.local -- tip: 🗂️ backup and recover secrets: https://dotenvx.com/ops
+2025-10-20T12:36:25.801Z  ⏳ Running migrations...
+2025-10-20T12:36:25.899Z  {
+2025-10-20T12:36:25.899Z    severity_local: 'NOTICE',
+2025-10-20T12:36:25.899Z    severity: 'NOTICE',
+2025-10-20T12:36:25.899Z    code: '42P06',
+2025-10-20T12:36:25.899Z    message: 'schema "drizzle" already exists, skipping',
+2025-10-20T12:36:25.899Z    file: 'schemacmds.c',
+2025-10-20T12:36:25.899Z    line: '132',
+2025-10-20T12:36:25.899Z    routine: 'CreateSchemaCommand'
+2025-10-20T12:36:25.899Z  }
+2025-10-20T12:36:25.901Z  {
+2025-10-20T12:36:25.901Z    severity_local: 'NOTICE',
+2025-10-20T12:36:25.901Z    severity: 'NOTICE',
+2025-10-20T12:36:25.901Z    code: '42P07',
+2025-10-20T12:36:25.901Z    message: 'relation "__drizzle_migrations" already exists, skipping',
+2025-10-20T12:36:25.901Z    file: 'parse_utilcmd.c',
+2025-10-20T12:36:25.901Z    line: '207',
+2025-10-20T12:36:25.901Z    routine: 'transformCreateStmt'
+2025-10-20T12:36:25.902Z  }
+2025-10-20T12:36:25.908Z  ✅ Migrations completed in 107 ms
+2025-10-20T12:36:26.871Z  
+2025-10-20T12:36:26.871Z  > Build error occurred
+2025-10-20T12:36:26.873Z  [Error: The experimental feature "experimental.ppr" can only be enabled when using the latest canary version of Next.js.]
+2025-10-20T12:36:26.880Z  error: script "build" exited with code 1
+2025-10-20T12:36:26.884Z  Error: Command "bun run build" exited with 1

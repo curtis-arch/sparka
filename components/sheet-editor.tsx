@@ -1,152 +1,29 @@
 "use client";
 
-import { useTheme } from "next-themes";
-import { parse, unparse } from "papaparse";
-import { memo, useEffect, useMemo, useState } from "react";
-import DataGrid, { textEditor } from "react-data-grid";
-import { cn } from "@/lib/utils";
-
-import "react-data-grid/lib/styles.css";
+// Temporary stub - react-data-grid has React 19 compatibility issues
+// TODO: Re-enable when react-data-grid supports React 19 or downgrade to React 18
 
 type SheetEditorProps = {
   content: string;
   saveContent: (content: string, isCurrentVersion: boolean) => void;
+  currentVersion: string;
   status: string;
-  isCurrentVersion: boolean;
-  currentVersionIndex: number;
-  isReadonly?: boolean;
 };
 
-const MIN_ROWS = 50;
-const MIN_COLS = 26;
-
-const PureSpreadsheetEditor = ({
+export default function SheetEditor({
   content,
   saveContent,
-  status: _status,
-  isCurrentVersion: _isCurrentVersion,
-  isReadonly,
-}: SheetEditorProps) => {
-  const { theme } = useTheme();
-
-  const parseData = useMemo(() => {
-    if (!content) {
-      return new Array(MIN_ROWS).fill(new Array(MIN_COLS).fill(""));
-    }
-    const result = parse<string[]>(content, { skipEmptyLines: true });
-
-    const paddedData = result.data.map((row) => {
-      const paddedRow = [...row];
-      while (paddedRow.length < MIN_COLS) {
-        paddedRow.push("");
-      }
-      return paddedRow;
-    });
-
-    while (paddedData.length < MIN_ROWS) {
-      paddedData.push(new Array(MIN_COLS).fill(""));
-    }
-
-    return paddedData;
-  }, [content]);
-
-  const columns = useMemo(() => {
-    const rowNumberColumn = {
-      key: "rowNumber",
-      name: "",
-      frozen: true,
-      width: 50,
-      renderCell: ({ rowIdx }: { rowIdx: number }) => rowIdx + 1,
-      cellClass: "border-t border-r dark:bg-zinc-950 dark:text-zinc-50",
-      headerCellClass: "border-t border-r dark:bg-zinc-900 dark:text-zinc-50",
-    };
-
-    const dataColumns = Array.from({ length: MIN_COLS }, (_, i) => ({
-      key: i.toString(),
-      name: String.fromCharCode(65 + i),
-      renderEditCell: isReadonly ? undefined : textEditor,
-      width: 120,
-      cellClass: cn("border-t dark:bg-zinc-950 dark:text-zinc-50", {
-        "border-l": i !== 0,
-      }),
-      headerCellClass: cn("border-t dark:bg-zinc-900 dark:text-zinc-50", {
-        "border-l": i !== 0,
-      }),
-    }));
-
-    return [rowNumberColumn, ...dataColumns];
-  }, [isReadonly]);
-
-  const initialRows = useMemo(
-    () =>
-      parseData.map((row, rowIndex) => {
-        const rowData: any = {
-          id: rowIndex,
-          rowNumber: rowIndex + 1,
-        };
-
-        columns.slice(1).forEach((col, colIndex) => {
-          rowData[col.key] = row[colIndex] || "";
-        });
-
-        return rowData;
-      }),
-    [parseData, columns]
-  );
-
-  const [localRows, setLocalRows] = useState(initialRows);
-
-  useEffect(() => {
-    setLocalRows(initialRows);
-  }, [initialRows]);
-
-  const generateCsv = (data: any[][]) => unparse(data);
-
-  const handleRowsChange = (newRows: any[]) => {
-    if (isReadonly) {
-      return;
-    }
-
-    setLocalRows(newRows);
-
-    const updatedData = newRows.map((row) =>
-      columns.slice(1).map((col) => row[col.key] || "")
-    );
-
-    const newCsvContent = generateCsv(updatedData);
-    saveContent(newCsvContent, true);
-  };
-
+  currentVersion,
+  status,
+}: SheetEditorProps) {
   return (
-    <DataGrid
-      className={theme === "dark" ? "rdg-dark" : "rdg-light"}
-      columns={columns}
-      defaultColumnOptions={{
-        resizable: true,
-        sortable: true,
-      }}
-      enableVirtualization
-      onCellClick={(args) => {
-        if (args.column.key !== "rowNumber" && !isReadonly) {
-          args.selectCell(true);
-        }
-      }}
-      onRowsChange={isReadonly ? undefined : handleRowsChange}
-      rows={localRows}
-      style={{ height: "100%" }}
-    />
-  );
-};
-
-function areEqual(prevProps: SheetEditorProps, nextProps: SheetEditorProps) {
-  return (
-    prevProps.currentVersionIndex === nextProps.currentVersionIndex &&
-    prevProps.isCurrentVersion === nextProps.isCurrentVersion &&
-    !(prevProps.status === "streaming" && nextProps.status === "streaming") &&
-    prevProps.content === nextProps.content &&
-    prevProps.saveContent === nextProps.saveContent &&
-    prevProps.isReadonly === nextProps.isReadonly
+    <div className="p-4 border rounded-md">
+      <p className="text-sm text-muted-foreground mb-2">
+        Sheet editor temporarily disabled due to React 19 compatibility.
+      </p>
+      <pre className="text-xs overflow-auto max-h-96 bg-muted p-4 rounded">
+        {content}
+      </pre>
+    </div>
   );
 }
-
-export const SpreadsheetEditor = memo(PureSpreadsheetEditor, areEqual);
