@@ -1,0 +1,81 @@
+$ (cd packages/models && bun run build) && tsx lib/db/migrate && next build
+$ bunx tsup
+CLI Building entry: index.ts
+CLI Using tsconfig: tsconfig.json
+CLI tsup v8.5.0
+CLI Using tsup config: /Users/johncurtis/projects/sparka/packages/models/tsup.config.ts
+CLI Target: esnext
+CLI Cleaning output folder
+ESM Build start
+CJS Build start
+ESM dist/index.js     98.64 KB
+ESM dist/index.js.map 166.22 KB
+ESM ⚡️ Build success in 11ms
+CJS dist/index.cjs     99.86 KB
+CJS dist/index.cjs.map 166.29 KB
+CJS ⚡️ Build success in 11ms
+DTS Build start
+DTS ⚡️ Build success in 612ms
+DTS dist/index.d.ts  9.04 KB
+DTS dist/index.d.cts 9.04 KB
+⏳ Running migrations...
+{
+  severity_local: 'NOTICE',
+  severity: 'NOTICE',
+  code: '42P06',
+  message: 'schema "drizzle" already exists, skipping',
+  file: 'schemacmds.c',
+  line: '132',
+  routine: 'CreateSchemaCommand'
+}
+{
+  severity_local: 'NOTICE',
+  severity: 'NOTICE',
+  code: '42P07',
+  message: 'relation "__drizzle_migrations" already exists, skipping',
+  file: 'parse_utilcmd.c',
+  line: '207',
+  routine: 'transformCreateStmt'
+}
+✅ Migrations completed in 1104 ms
+   ▲ Next.js 15.5.1-canary.28 (webpack)
+   - Environments: .env.local
+   - Experiments (use with caution):
+     · optimizePackageImports
+     · ppr: "incremental"
+     ✓ rdcForNavigations (enabled by `experimental.ppr`)
+
+   Creating an optimized production build ...
+ ⚠ Compiled with warnings in 6.2s
+
+./node_modules/.bun/@ai-sdk-tools+devtools@0.8.4+ab8b2c93b351ef98/node_modules/@ai-sdk-tools/devtools/dist/index.mjs
+Module not found: Can't resolve '@ai-sdk-tools/store' in '/Users/johncurtis/projects/sparka/node_modules/.bun/@ai-sdk-tools+devtools@0.8.4+ab8b2c93b351ef98/node_modules/@ai-sdk-tools/devtools/dist'
+
+Import trace for requested module:
+./node_modules/.bun/@ai-sdk-tools+devtools@0.8.4+ab8b2c93b351ef98/node_modules/@ai-sdk-tools/devtools/dist/index.mjs
+
+ ✓ Compiled successfully in 17.4s
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+ ⚠ Using edge runtime on a page currently disables static generation for that page
+Error: No API key provided
+    at new aZ (.next/server/chunks/2925.js:8:13357)
+    at 99768 (.next/server/chunks/5390.js:68:5004)
+    at c (.next/server/webpack-runtime.js:1:143)
+    at 75668 (.next/server/app/(chat)/api/chat/route.js:1:2049)
+    at c (.next/server/webpack-runtime.js:1:143)
+    at <unknown> (.next/server/app/(chat)/api/chat/route.js:1:8147)
+    at c.X (.next/server/webpack-runtime.js:1:2204)
+    at <unknown> (.next/server/app/(chat)/api/chat/route.js:1:8064)
+    at Object.<anonymous> (.next/server/app/(chat)/api/chat/route.js:1:8179) {
+  statusCode: 401,
+  details: undefined
+}
+
+> Build error occurred
+Error: Failed to collect page data for /api/chat
+    at ignore-listed frames {
+  type: 'Error'
+}
+error: script "build" exited with code 1

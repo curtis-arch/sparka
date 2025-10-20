@@ -12,9 +12,16 @@ type GenerateImageProps = {
   lastGeneratedImage?: { imageUrl: string; name: string } | null;
 };
 
-const openaiClient = new OpenAI({
-  apiKey: env.OPENAI_API_KEY,
-});
+let openaiClientInstance: OpenAI | null = null;
+
+function getOpenAIClient(): OpenAI {
+  if (!openaiClientInstance) {
+    openaiClientInstance = new OpenAI({
+      apiKey: env.OPENAI_API_KEY,
+    });
+  }
+  return openaiClientInstance;
+}
 
 const log = createModuleLogger("ai.tools.generate-image");
 
@@ -99,7 +106,7 @@ Use for:
 
           inputImages.push(...partImages);
 
-          const rsp = await openaiClient.images.edit({
+          const rsp = await getOpenAIClient().images.edit({
             model: "gpt-image-1",
             image: inputImages, // Pass all images to OpenAI
             prompt,

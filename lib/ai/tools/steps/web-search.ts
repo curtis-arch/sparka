@@ -26,11 +26,25 @@ export type WebSearchResponse = {
   error?: string;
 };
 
-// Initialize search providers
-const tvly = tavily({ apiKey: env.TAVILY_API_KEY as string });
-const firecrawl = new FirecrawlApp({
-  apiKey: env.FIRECRAWL_API_KEY ?? "",
-});
+// Initialize search providers lazily
+let tavilyInstance: ReturnType<typeof tavily> | null = null;
+let firecrawlInstance: FirecrawlApp | null = null;
+
+function getTavily() {
+  if (!tavilyInstance) {
+    tavilyInstance = tavily({ apiKey: env.TAVILY_API_KEY as string });
+  }
+  return tavilyInstance;
+}
+
+function getFirecrawl(): FirecrawlApp {
+  if (!firecrawlInstance) {
+    firecrawlInstance = new FirecrawlApp({
+      apiKey: env.FIRECRAWL_API_KEY ?? "",
+    });
+  }
+  return firecrawlInstance;
+}
 
 const log = createModuleLogger("tools/steps/web-search");
 
@@ -49,7 +63,7 @@ export async function webSearchStep({
     let results: WebSearchResult[] = [];
 
     if (providerOptions.provider === "tavily") {
-      const response = await tvly.search(query, {
+      const response = await getTavily().search(query, {
         searchDepth: providerOptions.searchDepth || "basic",
         maxResults,
         includeAnswer: true,
@@ -63,7 +77,7 @@ export async function webSearchStep({
         content: r.content,
       }));
     } else if (providerOptions.provider === "firecrawl") {
-      const response = await firecrawl.search(query, {
+      const response = await getFirecrawl().search(query, {
         timeout: providerOptions.timeout || 15_000,
         limit: maxResults,
         scrapeOptions: { formats: ["markdown"] },

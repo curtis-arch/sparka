@@ -1,5 +1,5 @@
 import type { AnthropicProviderOptions } from "@ai-sdk/anthropic";
-import { gateway } from "@ai-sdk/gateway";
+import { createGateway, type GatewayProvider } from "@ai-sdk/gateway";
 import type { GoogleGenerativeAIProviderOptions } from "@ai-sdk/google";
 import { type OpenAIResponsesProviderOptions, openai } from "@ai-sdk/openai";
 import { extractReasoningMiddleware, wrapLanguageModel } from "ai";
@@ -7,6 +7,7 @@ import type { ImageModelId, ModelId } from "../../packages/models";
 import { getModelAndProvider } from "../../packages/models";
 import type { AppModelId } from "./app-models";
 import { getAppModelDefinition, getImageModelDefinition } from "./app-models";
+import { env } from "../env";
 
 const _telemetryConfig = {
   telemetry: {
@@ -15,9 +16,20 @@ const _telemetryConfig = {
   },
 };
 
+let gatewayInstance: GatewayProvider | null = null;
+
+function getGateway(): GatewayProvider {
+  if (!gatewayInstance) {
+    gatewayInstance = createGateway({
+      apiKey: env.AI_GATEWAY_API_KEY,
+    });
+  }
+  return gatewayInstance;
+}
+
 export const getLanguageModel = (modelId: ModelId) => {
   const model = getAppModelDefinition(modelId);
-  const languageProvider = gateway(model.id);
+  const languageProvider = getGateway()(model.id);
 
   // Wrap with reasoning middleware if the model supports reasoning
   if (model.reasoning && model.owned_by === "xai") {

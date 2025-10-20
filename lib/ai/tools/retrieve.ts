@@ -3,9 +3,16 @@ import { tool } from "ai";
 import { z } from "zod";
 import { env } from "@/lib/env";
 
-const app = new FirecrawlApp({
-  apiKey: env.FIRECRAWL_API_KEY,
-});
+let firecrawlInstance: FirecrawlApp | null = null;
+
+function getFirecrawlApp(): FirecrawlApp {
+  if (!firecrawlInstance) {
+    firecrawlInstance = new FirecrawlApp({
+      apiKey: env.FIRECRAWL_API_KEY,
+    });
+  }
+  return firecrawlInstance;
+}
 
 export const retrieve = tool({
   description: `Fetch structured information from a single URL via Firecrawl.
@@ -20,7 +27,7 @@ Avoid:
   }),
   execute: async ({ url }: { url: string }) => {
     try {
-      const content = await app.scrapeUrl(url);
+      const content = await getFirecrawlApp().scrapeUrl(url);
       if (!(content.success && content.metadata)) {
         return {
           results: [
@@ -44,7 +51,7 @@ Avoid:
 
       // If any content is missing, use extract to get it
       if (!(title && description && extractedContent)) {
-        const extractResult = await app.extract([url], {
+        const extractResult = await getFirecrawlApp().extract([url], {
           prompt:
             "Extract the page title, main content, and a brief description.",
           schema,

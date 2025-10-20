@@ -10,10 +10,10 @@ export const env = createEnv({
     AI_GATEWAY_API_KEY: z.string().min(1),
     CRON_SECRET: z.string().min(1),
     AUTH_SECRET: z.string().min(1),
-    AUTH_GOOGLE_ID: z.string().min(1),
-    AUTH_GOOGLE_SECRET: z.string().min(1),
-    AUTH_GITHUB_ID: z.string().min(1),
-    AUTH_GITHUB_SECRET: z.string().min(1),
+    AUTH_GOOGLE_ID: z.string().optional(),
+    AUTH_GOOGLE_SECRET: z.string().optional(),
+    AUTH_GITHUB_ID: z.string().optional(),
+    AUTH_GITHUB_SECRET: z.string().optional(),
 
     // Blob: on Vercel, the SDK is auto-configured; locally we require a token
     BLOB_READ_WRITE_TOKEN: z.string().min(1),
