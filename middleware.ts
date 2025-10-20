@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 // Temporarily disable auth middleware for initial deployment
 // TODO: Re-enable with proper edge-compatible auth check
-export const runtime = "nodejs";
+// Note: Middleware in Next.js 15 MUST run on edge runtime - cannot use nodejs runtime
 
 export default async function middleware(req: NextRequest) {
   // Middleware temporarily disabled for deployment - auth handled in page components
