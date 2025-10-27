@@ -1,24 +1,38 @@
 import type { ModelId } from "@airegistry/vercel-gateway";
 import type { ModelMessage, ToolModelMessage } from "ai";
-import { experimental_createMCPClient } from "ai";
+// NOTE: MCP functionality temporarily disabled
+// The experimental_createMCPClient was moved from 'ai' to '@ai-sdk/mcp' in ai@5.0.79+
+// To re-enable MCP support:
+// 1. Install: bun add @ai-sdk/mcp
+// 2. Update import: import { experimental_createMCPClient } from "@ai-sdk/mcp";
+// 3. Uncomment the loadMcpTools function below
 import type { StreamWriter } from "@/lib/ai/types";
 import { getAppModelDefinition } from "../../app-models";
 import { firecrawlWebSearch, tavilyWebSearch } from "../web-search";
 import type { DeepResearchConfig, SearchAPI } from "./configuration";
 
-// MCP Utils
+// MCP Utils - TEMPORARILY DISABLED
+// See note above for re-enabling instructions
 
-type McpClient = Awaited<ReturnType<typeof experimental_createMCPClient>>;
-type McpToolSet = Awaited<ReturnType<McpClient["tools"]>>;
+// type McpClient = Awaited<ReturnType<typeof experimental_createMCPClient>>;
+// type McpToolSet = Awaited<ReturnType<McpClient["tools"]>>;
 
 export async function loadMcpTools(
   config: DeepResearchConfig,
   existingToolNames: Set<string>
 ) {
+  // MCP functionality temporarily disabled - return empty tools
+  // To re-enable, see comment at top of file
   if (!config.mcp_config?.url) {
     return {};
   }
 
+  console.warn(
+    "MCP tools are currently disabled. To enable, install @ai-sdk/mcp package and update imports."
+  );
+  return {};
+
+  /* Original implementation - uncomment after installing @ai-sdk/mcp
   let client: McpClient | null = null;
   try {
     // Create MCP client based on configuration
@@ -72,6 +86,7 @@ export async function loadMcpTools(
       await client.close();
     }
   }
+  */
 }
 
 // Tool Utils

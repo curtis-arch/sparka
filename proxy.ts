@@ -1,5 +1,6 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
+import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
 
 export async function proxy(req: NextRequest) {
@@ -28,7 +29,7 @@ export async function proxy(req: NextRequest) {
     return;
   }
 
-  const session = await auth.api.getSession({ headers: req.headers });
+  const session = await auth.api.getSession({ headers: await headers() });
   const isLoggedIn = !!session?.user;
 
   const isOnChat = url.pathname.startsWith("/");
@@ -71,6 +72,8 @@ export async function proxy(req: NextRequest) {
   }
 }
 
+// Note: Proxy files always run on Node.js runtime by default
+// Route segment config is not needed and causes build errors in Next.js 16
 export const config = {
   matcher: [
     /*
