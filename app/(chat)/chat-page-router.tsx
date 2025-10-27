@@ -16,7 +16,11 @@ export function ChatPageRouter() {
 
   // Render appropriate page based on type
   if (type === "provisional") {
-    return <ChatHome id={id} />;
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <ChatHome id={id} />
+      </Suspense>
+    );
   }
 
   if (type === "shared") {
