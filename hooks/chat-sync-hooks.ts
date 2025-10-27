@@ -41,13 +41,16 @@ export function useSaveChat() {
   const trpc = useTRPC();
   const queryClient = useQueryClient();
 
-  const generateTitleMutation = useMutation(
-    trpc.chat.generateTitle.mutationOptions({
+  const generateTitleMutationOptions = useMemo(
+    () => trpc.chat.generateTitle.mutationOptions({
       onError: (error) => {
         console.error("Failed to generate title:", error);
       },
-    })
+    }),
+    [trpc.chat.generateTitle]
   );
+
+  const generateTitleMutation = useMutation(generateTitleMutationOptions);
 
   const saveChatMutation = useMutation({
     mutationFn: async ({
